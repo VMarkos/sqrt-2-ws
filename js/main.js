@@ -85,6 +85,11 @@ const utils = {
         square2.addEventListener("mousedown", utils.catch);
         square2.addEventListener("mouseout", utils.drop);
         square2.addEventListener("mouseup", utils.drop);
+        // Mobile
+        square1.addEventListener("touchstart", utils.catch);
+        square1.addEventListener("touchend", utils.drop);
+        square2.addEventListener("touchstart", utils.catch);
+        square2.addEventListener("touchend", utils.drop);
     },
     onWindowLoad: (event) => {
         utils.updateOverlap();
