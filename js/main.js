@@ -23,10 +23,10 @@ const utils = {
         overlapElement.innerText = overlap.toFixed(3) + "%";
     },
     catch: (event) => {
-        quantities.previousMousePos.x = parseFloat(event.clientX);
-        quantities.previousMousePos.y = parseFloat(event.clientY);
-        quantities.mousePos.x = parseFloat(event.clientX);
-        quantities.mousePos.y = parseFloat(event.clientY);
+        quantities.previousMousePos.x = parseFloat(event.pageX);
+        quantities.previousMousePos.y = parseFloat(event.pageY);
+        quantities.mousePos.x = parseFloat(event.pageX);
+        quantities.mousePos.y = parseFloat(event.pageY);
         event.currentTarget.addEventListener("mousemove", utils.drag);
         event.currentTarget.addEventListener("touchmove", utils.drag);
         // console.log("init:", quantities.previousMousePos);
