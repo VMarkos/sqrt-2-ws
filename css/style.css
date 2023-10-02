@@ -1,0 +1,68 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-container-padding {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0px 20px 0px 20px;
+}
+
+.overlap-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.overlap-label {
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+.overlap {
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+}
+
+/* SVG styles */
+
+.square {
+    position: relative;
+    background-color: white;
+    border: solid 2px rgba(40, 40, 40, 1.0);
+    width: 300px;
+    height: 300px;
+}
+
+.square.small {
+    position: absolute;
+    background-color: rgba(220, 120, 120, 1.0);
+    border: none;
+    opacity: 0.2;
+    cursor: pointer;
+    width: 212px;
+    height: 212px;
+}
+
+.square.small:hover {
+    opacity: 0.4;
+    transition: 200ms opacity;
+}
