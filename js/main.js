@@ -23,6 +23,7 @@ const utils = {
         overlapElement.innerText = overlap.toFixed(3) + "%";
     },
     catch: (event) => {
+        event.preventDefault();
         quantities.previousMousePos.x = parseFloat(event.pageX);
         quantities.previousMousePos.y = parseFloat(event.pageY);
         quantities.mousePos.x = parseFloat(event.pageX);
@@ -32,6 +33,7 @@ const utils = {
         // console.log("init:", quantities.previousMousePos);
     },
     drag: (event) => {
+        event.preventDefault();
         const newMousePosX = parseFloat(event.clientX);
         const newMousePosY = parseFloat(event.clientY);
         // console.log("new:", newMousePosX, newMousePosY);
@@ -66,7 +68,7 @@ const utils = {
         utils.updateOverlap();
     },
     drop: (event) => {
-        // console.log("drop");
+        event.preventDefault();
         quantities.previousMousePos.x = -1;
         quantities.previousMousePos.y = -1;
         quantities.mousePos.x = -1;
