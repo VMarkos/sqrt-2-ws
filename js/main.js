@@ -28,6 +28,7 @@ const utils = {
         quantities.mousePos.x = parseFloat(event.clientX);
         quantities.mousePos.y = parseFloat(event.clientY);
         event.currentTarget.addEventListener("mousemove", utils.drag);
+        event.currentTarget.addEventListener("touchmove", utils.drag);
         // console.log("init:", quantities.previousMousePos);
     },
     drag: (event) => {
@@ -71,6 +72,7 @@ const utils = {
         quantities.mousePos.x = -1;
         quantities.mousePos.y = -1;
         event.currentTarget.removeEventListener("mousemove", utils.drag);
+        event.currentTarget.removeEventListener("touchmove", utils.drag);
     },
     attachListeners: (event) => {
         const square1 = document.getElementById("behind");
