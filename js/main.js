@@ -24,18 +24,30 @@ const utils = {
     },
     catch: (event) => {
         event.preventDefault();
-        quantities.previousMousePos.x = parseFloat(event.pageX);
-        quantities.previousMousePos.y = parseFloat(event.pageY);
-        quantities.mousePos.x = parseFloat(event.pageX);
-        quantities.mousePos.y = parseFloat(event.pageY);
+        let pos;
+        if (event.targetTouches && event.targetTouches.length > 0) {
+            pos = { x: event.targetTouches[0].pageX, y: event.targetTouches[0].pageY }
+        } else {
+            pos = { x: event.pageX, y: event.pageY }
+        }
+        quantities.previousMousePos.x = parseFloat(pos.x);
+        quantities.previousMousePos.y = parseFloat(pos.y);
+        quantities.mousePos.x = parseFloat(pos.x);
+        quantities.mousePos.y = parseFloat(pos.y);
         event.currentTarget.addEventListener("mousemove", utils.drag);
         event.currentTarget.addEventListener("touchmove", utils.drag);
         // console.log("init:", quantities.previousMousePos);
     },
     drag: (event) => {
         event.preventDefault();
-        const newMousePosX = parseFloat(event.clientX);
-        const newMousePosY = parseFloat(event.clientY);
+        let pos;
+        if (event.targetTouches && event.targetTouches.length > 0) {
+            pos = { x: event.targetTouches[0].pageX, y: event.targetTouches[0].pageY }
+        } else {
+            pos = { x: event.pageX, y: event.pageY }
+        }
+        const newMousePosX = parseFloat(pos.x);
+        const newMousePosY = parseFloat(pos.y);
         // console.log("new:", newMousePosX, newMousePosY);
         if (quantities.mousePos.x === newMousePosX && quantities.mousePos.y === newMousePosY) {
             return;
